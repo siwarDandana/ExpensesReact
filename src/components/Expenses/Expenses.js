@@ -22,6 +22,7 @@ function Expenses({ expenses }) {
     expensesContent = filtredExpenses.map((expense) => {
       return (
         <ExpenseItem
+          key={expense.id}
           date={expense.date}
           price={expense.price}
           title={expense.title}
@@ -35,7 +36,7 @@ function Expenses({ expenses }) {
         filterValue={filter}
         onFilterChangeHandler={filterChangeHandler}
       />
-      <ChartData />
+      <ChartData expensesData = {filtredExpenses} />
       {expensesContent}
       {/* {filtredExpenses.length === 0 ? (
           <p>No Expenses Found !!!</p>
